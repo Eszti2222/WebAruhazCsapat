@@ -3,7 +3,7 @@ import KosarELem from "./KosarElem.js";
 export default class Kosaram {
     #kosarLista = [];
     constructor(szElem) {
-        this.#kosarLista = kosarLista;
+       
         this.szElem =szElem;
         this.osszegElem=document.querySelector(".osszegez")
         this.megjelenit();
@@ -12,7 +12,7 @@ export default class Kosaram {
 
     }
     #osszegez() {
-        vegOsszeg = 0;
+       let vegOsszeg = 0;
         for (let index = 0; index < this.#kosarLista.length; index++) {
             vegOsszeg += this.#kosarLista[index].ar;
         }

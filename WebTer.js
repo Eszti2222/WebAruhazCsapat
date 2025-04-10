@@ -7,7 +7,7 @@ export default class WebTer {
         this.szElemAS = szElemAS,
             this.szElemART = szElemART,
             this.#lista = lista,
-            this.megjelenit(),
+            this.megjelenitKosar(),
             this.megjelenitListaElemek()
     }
 
@@ -15,7 +15,7 @@ export default class WebTer {
         this.szElemAS.innerHTML = "";
         for (let index = 0; index < this.#lista.length; index++) {
             const termek = this.#lista[index];
-            new Kosaram(kosaram.szElem,this.szElemAS);
+            new Kosaram(this.szElemAS);
         }
     }
 
@@ -24,7 +24,7 @@ export default class WebTer {
         this.szElemART.innerHTML = "";
         for (let index = 0; index < this.#lista.length; index++) {
             const termek = this.#lista[index];
-            new Termek(termek.elUt, termek.ar, index, termek.termekNev, this.szElemART);
+            new Termek(termek.kep, termek.ar, index, termek.termekNev, this.szElemART);
         }
     }
 }
