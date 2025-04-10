@@ -11,8 +11,11 @@ export default class Termek {
         this.szElem = szElem;
         this.megjelenit();
         this.termekElem = this.szElem.querySelector(".termekElem:last-child");
-        this.buttonElem = this.termekElem.querySelector(".btn.btn-primary");
-        this.atrakKosarba();
+        if (this.termekElem) {
+            this.buttonElem = this.termekElem.querySelector(".btn.btn-primary");
+            this.atrakKosarba();
+        }
+
     }
     
 
