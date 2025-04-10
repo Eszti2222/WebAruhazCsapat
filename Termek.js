@@ -3,17 +3,18 @@ export default class Termek {
     #ar;
     #index;
     #elUt;
-    constructor(elUt, ar, index, termekNev, szElem){
+    constructor(elUt, ar, index, termekNev, szElem) {
         this.#elUt = elUt;
         this.#ar = ar;
         this.#index = index;
         this.#termekNev = termekNev;
         this.szElem = szElem;
         this.megjelenit();
-        this.termekElem = document.querySelector(".termekElem:last-child")
-        this.buttonElem = termekElem.querySelector(".btn btn-primary");
+        this.termekElem = this.szElem.querySelector(".termekElem:last-child");
+        this.buttonElem = this.termekElem.querySelector(".btn.btn-primary");
         this.atrakKosarba();
     }
+    
 
     megjelenit(){
         let html = `<div class="col-md-4 mb-4">
