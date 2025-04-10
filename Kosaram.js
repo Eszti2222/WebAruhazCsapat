@@ -5,7 +5,7 @@ export default class Kosaram {
     constructor(szElem) {
         this.#kosarLista = kosarLista;
         this.szElem =szElem;
-        this.osszegElem=document.querySelector()
+        this.osszegElem=document.querySelector(".osszegez")
         this.megjelenit();
         this.kosarba();
         this.torol();
@@ -19,12 +19,13 @@ export default class Kosaram {
         return vegOsszeg;
     }
     vegOsszegKiir(){
-        let html = `<div class="" >
+        let html = `<div class="osszegez" >
             <p>${this.#osszegez()}</p>
         </div>
         `;
         this.szElem.insertAdjacentHTML("beforeend", html);
     }
+
     kosarba(){
         window.addEventListener("felvetel", (event) => {
             console.log(event.detail);
@@ -50,7 +51,7 @@ export default class Kosaram {
                 const element = this.#kosarLista[index];
                 new KosarELem(element, this.szElem, index);
             }
-            this.#osszegez()
+            this.vegOsszegKiir()
         }
         
         
