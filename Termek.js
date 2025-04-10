@@ -16,19 +16,25 @@ export default class Termek {
     }
 
     megjelenit(){
-        let html = `<div class = "termekElem">
+        let html = `<div class="termekElem">
                         <img src="${this.#elUt}" alt="${this.#termekNev}">
                         <p>${this.#termekNev}</p>
-                        <p>${ar}</p>
-                        <button class = "gomb">KOSÁRBA</button>
+                        <p>${this.#ar}</p>
+                        <button class="gomb">KOSÁRBA</button>
                     </div>`;
         this.szElem.insertAdjacentHTML("beforeend", html);
     }
 
     atrakKosarba(){
-        this.buttonElem.addEventListener("click", ()=>{
-            console.log(this.buttonElem.value);
-            const e = new CustomEvent("felvetel", {detail : this.buttonElem.value});  
+        this.buttonElem.addEventListener("click", () => {
+            console.log(this.#termekNev);
+            const e = new CustomEvent("felvetel", {
+                detail: {
+                    termekNev: this.#termekNev,
+                    ar: this.#ar,
+                    index: this.#index
+                }
+            });
             window.dispatchEvent(e);
         });
     }
