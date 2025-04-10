@@ -4,26 +4,34 @@ export default class Kosaram {
     #kosarLista = [];
     constructor(szElem) {
         this.#kosarLista = kosarLista;
-        this.szElem = document.querySelector();
+        this.szElem =szElem;
+        this.osszegElem=document.querySelector()
         this.megjelenit();
         this.kosarba();
-        this.#osszegez();
         this.torol();
+
     }
     #osszegez() {
         vegOsszeg = 0;
         for (let index = 0; index < this.#kosarLista.length; index++) {
-            vegOsszeg += this.#kosarLista.ar;
+            vegOsszeg += this.#kosarLista[index].ar;
         }
         return vegOsszeg;
     }
-    kosarba() {
+    vegOsszegKiir(){
+        let html = `<div class="" >
+            <p>${this.#osszegez()}</p>
+        </div>
+        `;
+        this.szElem.insertAdjacentHTML("beforeend", html);
+    }
+    kosarba(){
         window.addEventListener("felvetel", (event) => {
             console.log(event.detail);
             this.#kosarLista.push(event.detail);
             this.megjelenit();
-          });
-
+           
+        });
     }
     torol() {
         window.addEventListener("torol", (event) => {
@@ -31,18 +39,20 @@ export default class Kosaram {
             // this.#lista eltávolítom az event,detail-edik elemet.
             this.#kosarLista.splice(event.detail, 1);
             this.megjelenit();
+           
         });
-
+        
     }
     megjelenit() {
         {
             this.szElem.innerHTML = "";
             for (let index = 0; index < this.#kosarLista.length; index++) {
-              const element = this.#kosarLista[index];
-              new KosarELem(element, this.szElem, index);
+                const element = this.#kosarLista[index];
+                new KosarELem(element, this.szElem, index);
             }
-          }
-
-
+            this.#osszegez()
+        }
+        
+        
     }
 }
