@@ -11,17 +11,21 @@ export default class Termek {
         this.szElem = szElem;
         this.megjelenit();
         this.termekElem = document.querySelector(".termekElem:last-child")
-        this.buttonElem = termekElem.querySelector(".gomb");
+        this.buttonElem = termekElem.querySelector(".btn btn-primary");
         this.atrakKosarba();
     }
 
     megjelenit(){
-        let html = `<div class="termekElem">
-                        <img src="${this.#elUt}" alt="${this.#termekNev}">
-                        <p>${this.#termekNev}</p>
-                        <p>${this.#ar}</p>
-                        <button class="gomb">KOSÁRBA</button>
-                    </div>`;
+        let html = `<div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="${this.#elUt}" class="card-img-top" alt="${this.#termekNev}">
+                            <div class="card-body">
+                                <h5 class="card-title">${this.#termekNev}</h5>
+                                <p class="card-text">${this.#ar} Ft</p>
+                                <button class="btn btn-primary">KOSÁRBA</button>
+                            </div>
+                        </div>
+                    </div>`;        
         this.szElem.insertAdjacentHTML("beforeend", html);
     }
 
